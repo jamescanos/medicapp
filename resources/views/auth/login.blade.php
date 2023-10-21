@@ -1,5 +1,7 @@
 @extends('layouts.form')
 
+@section('title','Ingresar')
+
 @section('content')
 
 <!-- Page content -->
@@ -56,7 +58,7 @@
           </div>
           <div class="row mt-3">
             <div class="col-6">
-              <a href="{{ route('password.request') }}" class="text-light"><small>¿Olvid&oacute; su Contrase&ntilde;A?</small></a>
+              <a href="{{ route('password.request') }}" class="text-light"><small>&iquest;Olvid&oacute; su Contrase&ntilde;a&#63;</small></a>
             </div>
             <div class="col-6 text-right">
               <a href="{{ route('register') }}" class="text-light"><small>Crear nueva cuenta</small></a>
