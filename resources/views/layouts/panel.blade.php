@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
-    
 <head>
-  <meta charset="utf-8" />
+  <meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>
     {{ config('app.name') }} | @yield('title','Dashboard')
@@ -26,7 +25,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- Brand -->
-      <a class="navbar-brand pt-0" href="./index.html">
+      <a class="navbar-brand pt-0" href="{{ url('/home') }}">
         <img src="{{ asset('img/brand/logo.png') }}" class="navbar-brand-img" alt="...">
       </a>
       <!-- User -->
@@ -59,7 +58,7 @@
         <div class="navbar-collapse-header d-md-none">
           <div class="row">
             <div class="col-6 collapse-brand">
-              <a href="./index.html">
+              <a href="{{ url('/home') }}">
                 <img src="{{ asset('img/brand/logo.png') }}">
               </a>
             </div>
@@ -101,7 +100,7 @@
             <a class="nav-link pr-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <div class="media align-items-center">
                 <span class="avatar avatar-sm rounded-circle">
-                  <img alt="Image placeholder" src="{{ asset('img/theme/team-4-800x800.jpg') }}">
+                  <img alt="Image placeholder" src="{{ asset('img/theme/team-1-800x800.jpg') }}">
                 </span>
                 <div class="media-body ml-2 d-none d-lg-block">
                   <span class="mb-0 text-sm  font-weight-bold">{{ auth()->user()->name }}</span>
