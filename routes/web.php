@@ -28,3 +28,9 @@ Route::get('/especialidades/{specialty}/edit', [App\Http\Controllers\SpecialtyCo
 Route::post('/especialidades', [App\Http\Controllers\SpecialtyController::class, 'sendData']);
 Route::put('/especialidades/{specialty}', [App\Http\Controllers\SpecialtyController::class, 'update']);
 Route::delete('/especialidades/{specialty}', [App\Http\Controllers\SpecialtyController::class, 'destroy']);
+
+// Rutas Médicos
+Route::resource('/medicos', 'App\Http\Controllers\DoctorController');
+
+// Rutas Pacientes
+Route::resource('/pacientes', 'App\Http\Controllers\PatientController');
