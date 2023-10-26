@@ -39,3 +39,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('/pacientes', 'App\Http\Controllers\Admin\PatientController');
 
 });
+
+/* Middleware Perfil Doctor */
+Route::middleware(['auth', 'doctor'])->group(function () {
+
+    Route::get('/horario', [App\Http\Controllers\Doctor\HorarioController::class, 'edit']);
+    Route::post('/horario', [App\Http\Controllers\Doctor\HorarioController::class, 'store']);
+
+});
