@@ -21,16 +21,21 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Especialidades
-Route::get('/especialidades', [App\Http\Controllers\SpecialtyController::class, 'index']);
-Route::get('/especialidades/create', [App\Http\Controllers\SpecialtyController::class, 'create']);
-Route::get('/especialidades/{specialty}/edit', [App\Http\Controllers\SpecialtyController::class, 'edit']);
-Route::post('/especialidades', [App\Http\Controllers\SpecialtyController::class, 'sendData']);
-Route::put('/especialidades/{specialty}', [App\Http\Controllers\SpecialtyController::class, 'update']);
-Route::delete('/especialidades/{specialty}', [App\Http\Controllers\SpecialtyController::class, 'destroy']);
+/* Middleware Perfil Admin */
+Route::middleware(['auth', 'admin'])->group(function () {
+    
+    //Especialidades
+    Route::get('/especialidades', [App\Http\Controllers\Admin\SpecialtyController::class, 'index']);
+    Route::get('/especialidades/create', [App\Http\Controllers\Admin\SpecialtyController::class, 'create']);
+    Route::get('/especialidades/{specialty}/edit', [App\Http\Controllers\Admin\SpecialtyController::class, 'edit']);
+    Route::post('/especialidades', [App\Http\Controllers\Admin\SpecialtyController::class, 'sendData']);
+    Route::put('/especialidades/{specialty}', [App\Http\Controllers\Admin\SpecialtyController::class, 'update']);
+    Route::delete('/especialidades/{specialty}', [App\Http\Controllers\Admin\SpecialtyController::class, 'destroy']);
 
-// Rutas Médicos
-Route::resource('/medicos', 'App\Http\Controllers\DoctorController');
+    // Rutas Médicos
+    Route::resource('/medicos', 'App\Http\Controllers\Admin\DoctorController');
 
-// Rutas Pacientes
-Route::resource('/pacientes', 'App\Http\Controllers\PatientController');
+    // Rutas Pacientes
+    Route::resource('/pacientes', 'App\Http\Controllers\Admin\PatientController');
+
+});
